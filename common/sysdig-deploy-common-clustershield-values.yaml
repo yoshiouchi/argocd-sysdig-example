@@ -3,9 +3,9 @@ global:
      accessKeySecret: sysdig-agent-key # Access Key Secret - from <sysdig URL>/secure/#/settings/agentInstallation
      region: au1
      tags:
-       environment: CHANGE_ME
+       environment: prod
   clusterConfig:
-     name: CHANGE_ME # Name of your cluster so Sysdig can identify it
+     name: home-lab-prod # Name of your cluster so Sysdig can identify it
   kspm:
       deploy: true
 agent:

@@ -28,7 +28,7 @@ spec:
       valueFiles:
       - $values/common/sysdig-deploy-common-clustershield-values.yaml
       - $values/prod/sysdig-deploy-lab2.yaml
-  - repoURL: 'https://github.com/andrewd-sysdig/argocd-sysdig-example.git'
+  - repoURL: 'https://github.com/yoshiouchi/argocd-sysdig-example.git'
     targetRevision: main
     ref: values
   project: default

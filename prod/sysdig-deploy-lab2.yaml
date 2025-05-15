@@ -4,4 +4,4 @@ global:
        environment: production
        cluster_type: kubeadm
   clusterConfig:
-     name: lab2 # Name of your cluster so Sysdig can identify it
+     name: home-lab-prod # Name of your cluster so Sysdig can identify it
