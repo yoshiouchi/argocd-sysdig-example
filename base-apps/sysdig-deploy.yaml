@@ -23,7 +23,7 @@ spec:
   sources:
   - repoURL: 'https://charts.sysdig.com'
     chart: sysdig-deploy
-    targetRevision: 1.67.2
+    targetRevision: 1.83.1
     helm:
       valueFiles:
       - $values/common/sysdig-deploy-common-clustershield-values.yaml
