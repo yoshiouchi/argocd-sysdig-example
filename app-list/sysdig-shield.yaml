@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sysdig-shield
+spec:
+  destination:
+    name: ''
+    namespace: sysdig
+    server: 'https://kubernetes.default.svc'
+  sources:
+  - repoURL: 'https://charts.sysdig.com'
+    chart: shield
+    targetRevision: 1.6.1
+    helm:
+      valueFiles:
+      - $values/values/sysdig-shield-values.yaml
+  - repoURL: 'https://github.com/yoshiouchi/argocd-sysdig-example.git'
+    targetRevision: main
+    ref: values
+  project: default
+  syncPolicy:
+    automated: 
+      prune: true
+      #selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
