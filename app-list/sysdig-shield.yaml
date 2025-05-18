@@ -22,7 +22,7 @@ spec:
   # Destination cluster and namespace to deploy the application
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: sysdig-shield
+    namespace: sysdig
 
   # Sync policy
   syncPolicy:
