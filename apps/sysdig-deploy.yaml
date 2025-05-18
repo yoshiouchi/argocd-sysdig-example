@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sysdig-deploy
+  # You'll usually want to add your resources to the argocd namespace.
+  namespace: argocd
+spec:
+  destination:
+    name: ''
+    namespace: sysdig-agent
+    server: 'https://kubernetes.default.svc'
+  ignoreDifferences:
+  - name: sysdig-clustershield
+    kind: Secret
+    jsonPointers:
+    - /data/sysdig-cluster-nats-password
+  - name: sysdig-clustershield-tls-certs
+    kind: Secret
+    jsonPointers:
+    - /data
+  - name: sysdig-deploy-clustershield-audit
+    kind: ValidatingWebhookConfiguration
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  sources:
+  - repoURL: 'https://charts.sysdig.com'
+    chart: sysdig-deploy
+    targetRevision: 1.83.1
+    helm:
+      valueFiles:
+      - $values/values/sysdig-deploy-common-clustershield-values.yaml
+      - $values/prod/sysdig-deploy-lab2.yaml
+  - repoURL: 'https://github.com/yoshiouchi/argocd-sysdig-example.git'
+    targetRevision: main
+    ref: values
+  project: default
+  syncPolicy:
+    automated: 
+      prune: true
+      #selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

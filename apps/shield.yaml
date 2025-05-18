@@ -2,6 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: sysdig-deploy
+  # You'll usually want to add your resources to the argocd namespace.
+  namespace: argocd
 spec:
   destination:
     name: ''
@@ -26,7 +28,7 @@ spec:
     targetRevision: 1.6.1
     helm:
       valueFiles:
-      - $values/common/shield.yaml
+      - $values/values/shield-values.yaml
       - $values/prod/sysdig-deploy-lab2.yaml
   - repoURL: 'https://github.com/yoshiouchi/argocd-sysdig-example.git'
     targetRevision: main
