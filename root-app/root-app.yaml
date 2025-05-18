@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-application
+  name: root-app
   # You'll usually want to add your resources to the argocd namespace.
   namespace: argocd
   # Add a this finalizer ONLY if you want these to cascade delete.
@@ -13,9 +13,9 @@ spec:
 
   # Source of the application manifests
   source:
-    repoURL: https://github.com/yoshiouchi/gitops-cert-level-2-examples.git
+    repoURL: https://github.com/yoshiouchi/argocd-sysdig-example.git
     targetRevision: HEAD
-    path: ./app-of-apps/my-app-list
+    path: ./app-list
    
     # directory
     directory:
