@@ -66,7 +66,7 @@ Fill in the form with the following values:
 - Application Name: `root-app`
 - Project Name: `default`
 - SYNC POLICY: Manual (you can enable auto-sync later)
-- Repository URL: https://github.com/<your-username>/argocd-sysdig-example
+- Repository URL: `https://github.com/<your-username>/argocd-sysdig-example`
 - Revision: HEAD
 - Path: `./root-app`
 - Cluster URL: https://kubernetes.default.svc
