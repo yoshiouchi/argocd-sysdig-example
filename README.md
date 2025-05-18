@@ -20,6 +20,8 @@ The **App of Apps** pattern in ArgoCD is a strategy for managing complex deploym
 
 ---
 
+# Steps to install
+
 ## 1. Install ArgoCD into Your Kubernetes Cluster Using Helm
 
 ```bash
@@ -27,8 +29,6 @@ helm repo add argo https://argoproj.github.io/argo-helm
 helm repo update
 helm install argocd --create-namespace --namespace argocd argo/argo-cd
 ```
-
----
 
 ## 2. Fork and Modify This Repository
 
@@ -44,8 +44,6 @@ helm install argocd --create-namespace --namespace argocd argo/argo-cd
 
 - Update the Git repository URL in root-app/sysdig-shield.yaml on line 18 with the URL of your forked repo.
 
----
-
 ## 3. Create the Required Kubernetes Namespace and Secret
 ### Create the sysdig namespace:
 ```bash
@@ -59,8 +57,6 @@ kubectl create secret generic sysdig-access-key \
   -n sysdig
 ```
 - Replace `<YOUR_ACCESS_KEY>` with your actual Sysdig access key.
-
----
 
 ## 4. Deploy the Root App in ArgoCD
 ### Go to the ArgoCD UI and click on + NEW APP.
@@ -78,8 +74,6 @@ Fill in the form with the following values:
 
 Click CREATE.
 
----
-
 ## 5. Sync the Root App
 Once the root-app is created, click SYNC from the ArgoCD UI.
 You should see the following apps being created:
@@ -91,5 +85,3 @@ You should see the following apps being created:
 - sysdig-shield
 
 This setup ensures Sysdig Shield is deployed alongside other workloads in a structured, GitOps-friendly manner.
-
----
