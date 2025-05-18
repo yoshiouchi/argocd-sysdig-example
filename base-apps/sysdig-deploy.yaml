@@ -22,11 +22,11 @@ spec:
     - .webhooks[].clientConfig.caBundle
   sources:
   - repoURL: 'https://charts.sysdig.com'
-    chart: sysdig-deploy
-    targetRevision: 1.83.1
+    chart: shield
+    targetRevision: 1.6.1
     helm:
       valueFiles:
-      - $values/common/sysdig-deploy-common-clustershield-values.yaml
+      - $values/common/shield.yaml
       - $values/prod/sysdig-deploy-lab2.yaml
   - repoURL: 'https://github.com/yoshiouchi/argocd-sysdig-example.git'
     targetRevision: main
