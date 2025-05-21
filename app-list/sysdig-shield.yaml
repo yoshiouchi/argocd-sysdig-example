@@ -11,7 +11,7 @@ spec:
   sources:
   - repoURL: 'https://charts.sysdig.com'
     chart: shield
-    targetRevision: 1.6.1
+    targetRevision: 1.6.2
     helm:
       valueFiles:
       - $values/values/sysdig-shield-values.yaml
